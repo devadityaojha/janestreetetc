@@ -91,7 +91,7 @@ def mean(l):
 ####################################################Core Strategies#####################################################
 
 #common stock & its ADR pair trading strategy
-def ADRSignal(cs_trade_price_list, adr_trade_price_list):
+def ADR(cs_trade_price_list, adr_trade_price_list):
     cs_mean = mean(cs_trade_price_list)
     adr_mean = mean(adr_trade_price_list)
     fair_diff = cs_mean - adr_mean
@@ -126,7 +126,7 @@ def action(exchange,vale, valbz, xlf, bond, gs, ms, wfc):
     if(len(vale) >= 10 and len(valbz) >= 10):
         vale = vale[-10:]
         valbz = valbz[-10:]
-        result = ADRSignal(valbz, vale)
+        result = ADR(valbz, vale)
         if(result != None and result[0] == True):
             print ("\n------------------------- ADR Make Action!-------------------------\n")
             orderid +=1
